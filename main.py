@@ -1,11 +1,14 @@
 import pygame, sys
+import player
 
 class Game:
     def __init__(self):
-        pass
+        player_sprite = player.Player("images\\player.png", screen_width, screen_height)
+        self.player = pygame.sprite.GroupSingle(player_sprite)
 
     def run(self):
-        pass
+        self.player.update()
+        self.player.draw(screen)
 
 if __name__ == "__main__":
     pygame.init()
@@ -29,4 +32,7 @@ if __name__ == "__main__":
 
         pygame.display.update()
         clock.tick(fps)
+
+        screen.fill((0, 0, 0))
+        
 
