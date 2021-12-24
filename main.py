@@ -13,8 +13,8 @@ class Game:
         self.player.sprite.bullets.draw(screen)
         self.player.sprite.bullets.update()
 
-        print(self.player.sprite.alive())
-
+        print(self.player.sprite.bullets)
+        
 if __name__ == "__main__":
     pygame.init()
 
