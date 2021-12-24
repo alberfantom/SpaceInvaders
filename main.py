@@ -10,6 +10,11 @@ class Game:
         self.player.update()
         self.player.draw(screen)
 
+        self.player.sprite.bullets.draw(screen)
+        self.player.sprite.bullets.update()
+
+        print(self.player.sprite.alive())
+
 if __name__ == "__main__":
     pygame.init()
 
@@ -34,5 +39,3 @@ if __name__ == "__main__":
         clock.tick(fps)
 
         screen.fill((0, 0, 0))
-        
-
