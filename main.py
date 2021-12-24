@@ -1,9 +1,11 @@
 import pygame, sys
 import player
 
+from settings import *
+
 class Game:
     def __init__(self):
-        player_sprite = player.Player("images\\player.png", screen_width, screen_height)
+        player_sprite = player.Player(player_image, screen_width, screen_height)
         self.player = pygame.sprite.GroupSingle(player_sprite)
 
     def run(self):
