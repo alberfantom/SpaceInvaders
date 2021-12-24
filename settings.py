@@ -7,19 +7,9 @@ bullet_image = "images\\bullet.png"
 
 size_shape = 16
 
-# shape = [
-#     "  xxxxxxx  ",
-#     " xxxxxxxxx ",
-#     "xxxxxxxxxxx",
-#     "xxxxxxxxxxx",
-#     "xxxxxxxxxxx",
-#     "xxx     xxx",
-#     "xx       xx"
-# ]   
-
 shape = [
+    "  xxxxxxx  ",
     " xxxxxxxxx ",
-    "xxxxxxxxxxx",
     "xxxxxxxxxxx",
     "xxxxxxxxxxx",
     "xxxxxxxxxxx",
