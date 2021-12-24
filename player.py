@@ -1,4 +1,5 @@
 import pygame
+import bullet
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, file_name, screen_width, screen_height):
@@ -11,6 +12,12 @@ class Player(pygame.sprite.Sprite):
         self.screen_height = screen_height
 
         self.speed = 6
+
+        # Стрельба
+        self.bullets = pygame.sprite.Group()
+
+        self.is_ready = True
+        self.cooldown = 1200
 
     def update(self):
         keys = pygame.key.get_pressed()
@@ -26,7 +33,19 @@ class Player(pygame.sprite.Sprite):
 
         # Стрельба
         if keys[pygame.K_SPACE]:
-            self.shoot()
+            if self.is_ready:
+                self.shoot()
+                self.is_ready = False
+                self.time_when_shot = pygame.time.get_ticks()
+
+            else:
+                self.recharge()
 
     def shoot(self):
-        pass
+        bullet_sprite = bullet.Bullet("images\\bullet.png", self.rect.midtop)
+        self.bullets.add(bullet_sprite)
+
+    def recharge(self):
+            self.time_current = pygame.time.get_ticks()
+            if self.time_current - self.time_when_shot >= self.cooldown:
+                self.is_ready = True
