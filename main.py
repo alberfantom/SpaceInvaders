@@ -10,8 +10,11 @@ class WindowGame:
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
 
-        player_sprite = Player(PLAYER_IMAGE, PLAYER_START_X, PLAYER_START_Y, PLAYER_SPEED)
-        self.player = pygame.sprite.GroupSingle(player_sprite)
+        self.player_sprite = Player(PLAYER_IMAGE, PLAYER_START_X, PLAYER_START_Y, PLAYER_SPEED)
+        self.player = pygame.sprite.GroupSingle(self.player_sprite)
+
+        self.weapon_sprite = self.player_sprite.weapon
+        self.weapon = pygame.sprite.GroupSingle(self.weapon_sprite)
 
         self.background = None
 
@@ -39,6 +42,12 @@ class WindowGame:
 
             self.player.update()
             self.player.draw(self.screen)
+
+            self.weapon.update()
+            self.weapon.draw(self.screen)
+
+            self.weapon_sprite.bullets.update()
+            self.weapon_sprite.bullets.draw(self.screen)
 
             pygame.display.update()
             self.clock.tick(FPS)
