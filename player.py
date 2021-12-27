@@ -31,6 +31,4 @@ class Player(pygame.sprite.Sprite):
                 object_rect.x += self.speed
 
         if keys[pygame.K_SPACE]:
-            self.weapon.shoot()
-
-        
+            self.weapon.shoot()    
