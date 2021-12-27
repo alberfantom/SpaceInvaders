@@ -1,5 +1,6 @@
 import pygame, sys
 from player import Player
+from obstacle import Obstacle
 
 from settings import *
 
