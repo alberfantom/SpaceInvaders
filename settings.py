@@ -12,8 +12,29 @@ PLAYER_START_X = SCREEN_WIDTH / 2
 PLAYER_START_Y = SCREEN_HEIGHT
 PLAYER_SPEED = 6
 
-WEAPON_COOLDOWN = 75
+WEAPON_COOLDOWN = 1
 WEAPON_IMAGE = "images\\weapon.png"
 
 BULLET_IMAGE = "images\\bullet.png"
 BULLET_SPEED = 6
+
+OBSTACLE_START_X = 0
+OBSTACLE_START_Y = 0
+
+OBSTACLE_SHAPE = [
+    "  ************  ",
+    " ************** ",
+    "****************",
+    "****************",
+    "****************",
+    "****************",
+    "***          ***",
+    "**            **"
+]
+
+BLOCK_SIZE = 8
+
+# Главное, чтобы image соответствовал
+# Размеру блока относительно метода
+# fill_obstacle()
+BLOCK_IMAGE = "images\\block.png"
