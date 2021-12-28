@@ -17,6 +17,8 @@ class WindowGame:
         self.weapon_sprite = self.player_sprite.weapon
         self.weapon = pygame.sprite.GroupSingle(self.weapon_sprite)
 
+        self.obstacles = self.create_obstacles(124, 0, 0)
+
         self.background = None
 
     def load_background(self, file_path):
@@ -26,6 +28,21 @@ class WindowGame:
             (self.screen.get_width(), self.screen.get_height()))
 
         self.screen_background_rect = self.screen_background.get_rect(topleft=(0, 0))
+
+    @staticmethod
+    def create_obstacles(offset_between_obstacles, start_x, start_y):
+        obstacles = list()
+        amount = 4
+
+        obstacles.append(Obstacle(OBSTACLE_SHAPE, start_x, start_y))
+        obstacles[-1].fill(BLOCK_SIZE)
+
+        for _ in range(amount - 1):
+            obstacle = Obstacle(OBSTACLE_SHAPE, obstacles[-1].start_x + obstacles[-1].width + offset_between_obstacles, start_y)
+            obstacles[-1].fill(BLOCK_SIZE)
+            obstacles.append(obstacle)
+
+        return obstacles
 
     def events_handling(self):
         while True:
@@ -49,6 +66,10 @@ class WindowGame:
 
             self.weapon_sprite.bullets.update()
             self.weapon_sprite.bullets.draw(self.screen)
+
+            for obstacle in self.obstacles:
+                obstacle.update()
+                obstacle.draw(self.screen)
 
             pygame.display.update()
             self.clock.tick(FPS)
