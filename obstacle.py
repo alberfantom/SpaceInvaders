@@ -4,38 +4,36 @@ from settings import *
 
 class Obstacle(pygame.sprite.Group):
     class Block(pygame.sprite.Sprite):
-        def __init__(self, file_path, *position):
+        def __init__(self, start_x, start_y, size):
             super().__init__()
+            
+            self.start_x = start_x
+            self.start_y = start_y
 
-            self.image = pygame.image.load(file_path).convert_alpha()
-            self.rect = self.image.get_rect(topleft=position)
+            self.size = size
+
+            self.image = pygame.Surface((size, size))
+            self.rect = self.image.get_rect(topleft=(self.start_x, self.start_y))
+
+            self.image.fill((0, 0, 255))
 
     def __init__(self, shape, start_x, start_y):
         super().__init__()
-
-        self.shape = shape
         
+        self.shape = shape
+
+        self.width = len(self.shape[0]) * BLOCK_SIZE
+        self.height = len(self.shape) * BLOCK_SIZE
+
         self.start_x = start_x
         self.start_y = start_y
 
-    def create_obstacles(self):
-        self.obstacles = list()
-        self.amount = None
-
-        for _ in range(self.amount):
-            self.obstacles.append()
-
-    def fill_obstacle(self, block_image, block_size):
+    def fill(self, size_block):
         for row_index, row in enumerate(self.shape):
             for column_index, column in enumerate(row):
-                x_block = row_index * block_size
-                y_block = column_index * block_size
-
-                # Добавить в параметры BLOCK_IMAGE
-                self.add(self.Block(block_image, x_block, y_block))
-
-obstacle = Obstacle(OBSTACLE_SHAPE, OBSTACLE_START_X, OBSTACLE_START_Y)
-
-obstacle.fill_obstacle(BLOCK_IMAGE, BLOCK_SIZE)
-
-print(obstacle.sprites())
+                if column == "*":
+                    start_x = column_index * size_block + self.start_x
+                    start_y = row_index * size_block + self.start_y
+                    
+                    block_sprite = self.Block(start_x, start_y, size_block)
+                    self.add(block_sprite)
