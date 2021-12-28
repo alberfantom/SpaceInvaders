@@ -33,8 +33,13 @@ OBSTACLE_SHAPE = [
 ]
 
 BLOCK_SIZE = 8
+WIDTH_OBSTACLE = len(OBSTACLE_SHAPE[0]) * BLOCK_SIZE
 
 # Главное, чтобы image соответствовал
 # Размеру блока относительно метода
 # fill_obstacle()
 BLOCK_IMAGE = "images\\block.png"
+BLOCK_COLOUR = (255, 0, 0)
+
+OFFSET_BORDER = 64
+OFFSET_BETWEEN_OBSTACLES = 128
