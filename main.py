@@ -18,7 +18,7 @@ class WindowGame:
         self.weapon_sprite = self.player_sprite.weapon
         self.weapon = pygame.sprite.GroupSingle(self.weapon_sprite)
 
-        self.obstacles = self.create_obstacles(124, 0, 0)
+        self.obstacles = self.create_obstacles(OFFSET_BETWEEN_OBSTACLES, OBSTACLE_START_X, OBSTACLE_START_Y)
 
         self.background = None
 
@@ -33,7 +33,7 @@ class WindowGame:
     @staticmethod
     def create_obstacles(offset_between_obstacles, start_x, start_y):
         obstacles = list()
-        amount = 4
+        amount = SCREEN_WIDTH // OBSTACLE_WIDTH
 
         if amount != 0:
             obstacle = Obstacle(OBSTACLE_SHAPE, start_x, start_y)
@@ -44,8 +44,6 @@ class WindowGame:
                 obstacle = Obstacle(OBSTACLE_SHAPE, obstacles[-1].start_x + obstacles[-1].width + offset_between_obstacles, start_y)
                 obstacles.append(obstacle)
                 obstacles[-1].fill(BLOCK_SIZE)
-            
-            print(obstacles)
 
         return obstacles
 
