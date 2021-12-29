@@ -24,11 +24,11 @@ class Player(pygame.sprite.Sprite):
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_a]:
-            if object_rect.left >= 0:
+            if object_rect.left - self.speed >= 0:
                 object_rect.x -= self.speed
 
         if keys[pygame.K_d]:
-            if object_rect.right <= SCREEN_WIDTH:
+            if object_rect.right + self.speed <= SCREEN_WIDTH:
                 object_rect.x += self.speed
 
         if keys[pygame.K_SPACE]:
