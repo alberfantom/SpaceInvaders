@@ -1,4 +1,5 @@
 import pygame, sys
+
 from player import Player
 from obstacle import Obstacle
 
@@ -34,13 +35,17 @@ class WindowGame:
         obstacles = list()
         amount = 4
 
-        obstacles.append(Obstacle(OBSTACLE_SHAPE, start_x, start_y))
-        obstacles[-1].fill(BLOCK_SIZE)
-
-        for _ in range(amount - 1):
-            obstacle = Obstacle(OBSTACLE_SHAPE, obstacles[-1].start_x + obstacles[-1].width + offset_between_obstacles, start_y)
-            obstacles[-1].fill(BLOCK_SIZE)
+        if amount != 0:
+            obstacle = Obstacle(OBSTACLE_SHAPE, start_x, start_y)
             obstacles.append(obstacle)
+            obstacles[-1].fill(BLOCK_SIZE)
+
+            for _ in range(amount - 1):
+                obstacle = Obstacle(OBSTACLE_SHAPE, obstacles[-1].start_x + obstacles[-1].width + offset_between_obstacles, start_y)
+                obstacles.append(obstacle)
+                obstacles[-1].fill(BLOCK_SIZE)
+            
+            print(obstacles)
 
         return obstacles
 
