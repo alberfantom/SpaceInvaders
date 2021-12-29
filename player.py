@@ -1,4 +1,5 @@
 import pygame
+
 from weapon import Weapon
 
 from settings import *
