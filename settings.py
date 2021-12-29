@@ -1,4 +1,4 @@
-SCREEN_WIDTH = 800
+SCREEN_WIDTH = 1920
 SCREEN_HEIGHT = 600
 
 FPS = 60
@@ -19,20 +19,24 @@ BULLET_IMAGE = "images\\bullet.png"
 BULLET_SPEED = 6
 
 OBSTACLE_START_X = 0
-OBSTACLE_START_Y = 0
+OBSTACLE_START_Y = SCREEN_HEIGHT / 1.25
 
 OBSTACLE_SHAPE = [
-    "  **************  ",
-    " **************** ",
-    "******************",
-    "******************",
-    "******************",
-    "******************",
-    "****          ****",
-    "***            ***"
+    "  ****************  ",
+    " ****************** ",
+    "********************",
+    "********************",
+    "********************",
+    "********************",
+    "*****          *****",
+    "****            ****"
 ]
 
-BLOCK_SIZE = 6
+BLOCK_SIZE = 4
+
+OBSTACLE_WIDTH = len(OBSTACLE_SHAPE[0]) * BLOCK_SIZE
+OBSTACLE_HEIGHT = len(OBSTACLE_SHAPE)
+
 WIDTH_OBSTACLE = len(OBSTACLE_SHAPE[0]) * BLOCK_SIZE
 
 # Главное, чтобы image соответствовал
@@ -41,5 +45,4 @@ WIDTH_OBSTACLE = len(OBSTACLE_SHAPE[0]) * BLOCK_SIZE
 BLOCK_IMAGE = "images\\block.png"
 BLOCK_COLOUR = (255, 0, 0)
 
-OFFSET_BORDER = 64
-OFFSET_BETWEEN_OBSTACLES = 128
+OFFSET_BETWEEN_OBSTACLES = 64
