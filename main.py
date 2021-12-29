@@ -33,8 +33,8 @@ class WindowGame:
     @staticmethod
     def create_obstacles(offset_between_obstacles, start_x, start_y):
         obstacles = list()
-        amount = SCREEN_WIDTH // OBSTACLE_WIDTH
-
+        amount = SCREEN_WIDTH // (OBSTACLE_WIDTH + offset_between_obstacles)
+        
         if amount != 0:
             obstacle = Obstacle(OBSTACLE_SHAPE, start_x, start_y)
             obstacles.append(obstacle)
