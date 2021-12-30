@@ -46,3 +46,14 @@ BLOCK_IMAGE = "images\\block.png"
 BLOCK_COLOUR = (255, 0, 0)
 
 OFFSET_BETWEEN_OBSTACLES = 64
+
+SQUAD_IMAGES = [
+    PLAYER_IMAGE,
+]
+
+SQUAD_SHAPE = [
+    "0000",
+    "0000",
+    "0000",
+    "0000"
+]
