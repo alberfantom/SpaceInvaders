@@ -2,6 +2,7 @@ import pygame, sys
 
 from player import Player
 from obstacle import Obstacle
+from squad import Squad
 
 from settings import *
 
@@ -19,6 +20,9 @@ class WindowGame:
         self.weapon = pygame.sprite.GroupSingle(self.weapon_sprite)
 
         self.obstacles = self.create_obstacles(OFFSET_BETWEEN_OBSTACLES, OBSTACLE_START_X, OBSTACLE_START_Y)
+
+        self.enemies = Squad(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+        self.enemies.fill(SQUAD_SHAPE)
 
         self.background = None
 
@@ -73,6 +77,9 @@ class WindowGame:
             for obstacle in self.obstacles:
                 obstacle.update()
                 obstacle.draw(self.screen)
+
+            self.enemies.update()
+            self.enemies.draw(self.screen)
 
             pygame.display.update()
             self.clock.tick(FPS)
