@@ -1,5 +1,7 @@
 import pygame
 
+from memory_profiler import *
+
 from settings import *
 
 class Squad(pygame.sprite.Group):
@@ -29,5 +31,3 @@ class Squad(pygame.sprite.Group):
                     enemy_image = SQUAD_IMAGES[int(shape[row_index][column_index])]
                     enemy_sprite = self.Enemy(enemy_image, start_x, start_y)
                     self.add(enemy_sprite)
-
-                    print(start_x, start_y)
