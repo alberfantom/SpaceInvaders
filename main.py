@@ -21,7 +21,7 @@ class WindowGame:
 
         self.obstacles = self.create_obstacles(OFFSET_BETWEEN_OBSTACLES, OBSTACLE_START_X, OBSTACLE_START_Y)
 
-        self.enemies = Squad(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+        self.enemies = Squad(SQUAD_START_X, SQUAD_START_Y)
         self.enemies.fill(SQUAD_SHAPE)
 
         self.background = None
