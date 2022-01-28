@@ -5,6 +5,8 @@ from memory_profiler import *
 from settings import *
 
 class Squad(pygame.sprite.Group):
+    direction = +1
+
     class Enemy(pygame.sprite.Sprite):
         def __init__(self, file_path, start_x, start_y):
             super().__init__()
@@ -14,6 +16,20 @@ class Squad(pygame.sprite.Group):
 
             self.start_x = start_x
             self.start_y = start_y
+        
+        def update(self):
+            self.check_positions()
+
+            if self.rect.right + SQUAD_SPEED >= SCREEN_WIDTH:
+                Squad.direction = -1
+
+            elif self.rect.left + SQUAD_SPEED <= 0:
+                Squad.direction = +1
+
+            self.rect.x += SQUAD_SPEED / Squad.direction
+
+        def check_positions():
+            pass
 
     def __init__(self, start_x, start_y):
         super().__init__()
