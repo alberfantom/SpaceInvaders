@@ -52,8 +52,13 @@ SQUAD_IMAGES = [
 ]
 
 SQUAD_SHAPE = [
-    "0000",
-    "0000",
-    "0000",
-    "0000"
+    "0 0 0 0",
+    "0 0 0 0",
+    "0 0 0 0",
+    "0 0 0 0"
 ]
+
+SQUAD_START_X = SCREEN_WIDTH / 5
+SQUAD_START_Y = SCREEN_HEIGHT / 2.5
+
+SQUAD_SPEED = 6
